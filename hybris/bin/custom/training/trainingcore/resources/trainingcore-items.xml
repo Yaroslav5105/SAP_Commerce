@@ -26,6 +26,11 @@
             <value code="YELLOW"/>
         </enumtype>
 
+        <enumtype code="CarBrand">
+            <value code="Mercedes_Benz"/>
+            <value code="AUDI"/>
+            <value code="BMW"/>
+        </enumtype>
     </enumtypes>
 
     <itemtypes>
@@ -83,6 +88,15 @@
                         <description>Size of the product.</description>
                         <modifiers/>
                         <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="CarWowUser" extends="User" generate="true" autocreate="true">
+                <attributes>
+                    <attribute qualifier="favoriteCarBrand" type="CarBrand">
+                        <persistence type="property"/>
+                        <defaultvalue>em().getEnumerationValue("CarBrand", "AUDI")</defaultvalue>
                     </attribute>
                 </attributes>
             </itemtype>
