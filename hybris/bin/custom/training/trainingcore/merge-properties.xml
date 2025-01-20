@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MergeProperties" default="merge">
+
+    <property prefix="app.properties" file="C:/newTime/hybris/config/local-dev.properties" />
+
+    <property prefix="app.properties" file="C:/newTime/hybris/config/local.properties" />
+
+    <target name="merge">
+
+        <echoproperties destfile="C:/newTime/hybris/config/local.properties">
+            <propertyset>
+                <propertyref prefix="app.properties"/>
+                <mapper type="glob" from="app.properties.*" to="*"/>
+            </propertyset>
+        </echoproperties>
+    </target>
+
+</project>
