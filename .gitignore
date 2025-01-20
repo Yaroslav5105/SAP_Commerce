@@ -1,0 +1,13 @@
+.idea/
+SIGNATURE.SMF
+build-tools/
+hybris-sbg/
+hybris/bin/modules/
+hybris/bin/platform/
+hybris/config/
+hybris/data/
+hybris/log/
+hybris/temp/
+idea-module-files/
+installer/
+licenses/
