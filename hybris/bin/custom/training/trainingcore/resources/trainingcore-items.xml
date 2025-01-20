@@ -92,6 +92,39 @@
                 </attributes>
             </itemtype>
 
+            <itemtype code="Car" jaloclass="org.training.jalo.Car" generate="true" autocreate="true">
+                <deployment table="Cars" typecode="10102"/>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <modifiers optional="false" initial="true" unique="true" search="true" read="true"
+                                   write="true"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="engine" type="Engine">
+                        <persistence type="property"/>
+                        <modifiers partof="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Engine" jaloclass="org.training.jalo.Engine" generate="true" autocreate="true">
+                <deployment table="Engines" typecode="10101"/>
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true" unique="true"/>
+                    </attribute>
+                    <attribute qualifier="horsepower" type="java.lang.Integer">
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="name" type="java.lang.String">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+
             <itemtype code="CarWowUser" extends="User" generate="true" autocreate="true">
                 <attributes>
                     <attribute qualifier="favoriteCarBrand" type="CarBrand">
