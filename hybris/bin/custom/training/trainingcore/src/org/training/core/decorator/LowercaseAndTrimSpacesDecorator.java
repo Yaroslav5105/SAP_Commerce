@@ -8,7 +8,6 @@ public class LowercaseAndTrimSpacesDecorator implements CSVCellDecorator {
 
     @Override
     public String decorate(int position, Map<Integer, String> srcLine) {
-        System.out.println("111111111111111111111111111111111111111111");
         String parsedValue = srcLine.get(position);
 
         if (parsedValue != null) {

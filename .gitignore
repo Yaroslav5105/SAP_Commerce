@@ -11,3 +11,5 @@ hybris/temp/
 idea-module-files/
 installer/
 licenses/
+hybris/bin/custom/training/trainingcore/eclipsebin/
+hybris/bin/custom/training/trainingcore/classes/
