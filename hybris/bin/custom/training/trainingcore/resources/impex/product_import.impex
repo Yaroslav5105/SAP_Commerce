@@ -1,0 +1,11 @@
+$productCatalog=productCatalog
+$onlineProduct=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default='$productCatalog:Online']
+
+
+INSERT_UPDATE Product;$onlineProduct;code[unique=true]
+                     ;;product1
+                     ;;product2
+
+INSERT_UPDATE CategoryProductRelation;source(code)[unique=true];target(code)[unique=true]
+                                     ;snow;product1
+                                     ;sea;product2
