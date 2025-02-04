@@ -539,4 +539,9 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+
+	<alias name="impexImportServiceImpl" alias="impexImportService"/>
+	<bean id="impexImportServiceImpl" class="org.training.core.impexImporter.imp.ImpexImportServiceImpl">
+	</bean>
+
 </beans>

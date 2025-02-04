@@ -11,3 +11,8 @@ hybris/temp/
 idea-module-files/
 installer/
 licenses/
+**/classes/
+**/gensrc/
+**/eclipsebin/
+**/jalo/
+**/org/
