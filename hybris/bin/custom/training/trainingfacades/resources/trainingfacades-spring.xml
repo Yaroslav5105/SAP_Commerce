@@ -182,4 +182,30 @@
 	</bean>
 
 	<bean id="genderData" class="org.training.facades.product.data.GenderData" scope="prototype"/>
+
+	<alias name="productBasicPopulator" alias="productBasicPopulator"/>
+	<bean id="productBasicPopulator" class="org.training.facades.populators.ProductBasicPopulator"/>
+
+	<alias name="cwPhysicalDimensionsProductPopulator" alias="physicalDimensionsProductPopulator"/>
+	<bean id="cwPhysicalDimensionsProductPopulator" class="org.training.facades.populators.CwPhysicalDimensionsProductPopulator"/>
+
+	<bean id="productBasicConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.platform.commercefacades.product.data.ProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="productBasicPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<alias name="productConfiguredPopulator" alias="productConfiguredPopulator"/>
+	<bean id="productConfiguredPopulator" class="de.hybris.platform.commercefacades.converter.impl.DefaultConfigurablePopulator">
+		<property name="populators">
+			<map key-type="de.hybris.platform.commercefacades.product.ProductOption" merge="true">
+				<entry key="PHYSICAL_DIMENSIONS" value-ref="physicalDimensionsProductPopulator"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="cwDefaultProductFacade" class="org.training.facades.product.CwDefaultProductFacade"/>
 </beans>
