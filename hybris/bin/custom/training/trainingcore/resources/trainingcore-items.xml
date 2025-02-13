@@ -33,6 +33,17 @@
         </enumtype>
     </enumtypes>
 
+    <relations>
+        <relation code="ProductBundle2ProductRelation" localized="false" generate="true" autocreate="true">
+            <sourceElement qualifier="productBundle" type="ProductBundle" cardinality="one">
+                <modifiers read="true" write="false" optional="true" search="true"/>
+            </sourceElement>
+                <targetElement qualifier="bundledProducts" type="Product" cardinality="many" collectiontype="set">
+                <modifiers read="true" write="true" optional="true"/>
+            </targetElement>
+        </relation>
+    </relations>
+
     <itemtypes>
 
         <!-- Add your item definitions here -->
@@ -134,6 +145,14 @@
                 </attributes>
             </itemtype>
 
+            <itemtype code="ProductBundle" extends="Product" autocreate="true" generate="true">
+                <attributes>
+                    <attribute qualifier="calculatedBundlePrice" type="java.lang.Double">
+                        <modifiers read="true" write="false"/>
+                        <persistence type="dynamic" attributeHandler="productBundlePriceAttributeHandler"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
         </typegroup>
 
 
