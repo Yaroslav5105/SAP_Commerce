@@ -539,4 +539,7 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+	<alias name="productBundlePriceAttributeHandler" alias="productBundlePriceAttributeHandler"/>
+	<bean id="productBundlePriceAttributeHandler" class=" org.training.core.handler.ProductBundlePriceAttributeHandler"/>
+
 </beans>
