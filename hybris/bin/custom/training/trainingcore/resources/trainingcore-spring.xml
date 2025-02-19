@@ -539,4 +539,10 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+	<bean id="engineHorsepowerInterceptor" class="org.training.core.interceptor.EngineHorsepowerInterceptor"/>
+
+	<bean id="EnginePrepareInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+		<property name="interceptor" ref="engineHorsepowerInterceptor"/>
+		<property name="typeCode" value="Engine"/>
+	</bean>
 </beans>
