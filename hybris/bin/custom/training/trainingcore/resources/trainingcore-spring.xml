@@ -539,4 +539,6 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+	<bean id="customerEmailEventListener" class="org.training.core.event.CustomerEmailEventListener" parent="abstractSiteEventListener"/>
+
 </beans>
