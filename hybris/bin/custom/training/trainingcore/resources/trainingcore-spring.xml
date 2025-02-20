@@ -539,4 +539,9 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+	<alias name="cwDefaultProductDAO" alias="cwProductDAO"/>
+	<bean id="cwDefaultProductDAO" class="org.training.core.dao.impl.CwDefaultProductDAO"/>
+
+	<alias name="cwDefaultProductService" alias="cwProductService"/>
+	<bean id="cwDefaultProductService" class="org.training.core.service.impl.CwDefaultProductService"/>
 </beans>
