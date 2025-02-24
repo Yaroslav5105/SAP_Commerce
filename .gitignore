@@ -11,3 +11,17 @@ hybris/temp/
 idea-module-files/
 installer/
 licenses/
+hybris/bin/custom/training/trainingcore/classes/**/*.class
+hybris/bin/custom/training/trainingcore/gensrc/**/*.java
+hybris/bin/custom/training/trainingcore/eclipsebin/
+hybris/bin/custom/training/trainingfacades/eclipsebin/
+hybris/bin/custom/training/trainingcore/classes/org/training/core/constants/GeneratedTrainingCoreConstants$Attributes$Product.class
+hybris/bin/custom/training/trainingcore/classes/org/training/core/constants/GeneratedTrainingCoreConstants$Enumerations$UnitSystemType.class
+hybris/bin/custom/training/trainingcore/eclipsebin/
+hybris/bin/custom/training/trainingfacades/classes/org/training/facades/populators/CwPhysicalDimensionsProductPopulator.class
+hybris/bin/custom/training/trainingfacades/classes/org/training/facades/populators/ProductBasicPopulator.class
+hybris/bin/custom/training/trainingfacades/classes/org/training/facades/product/
+hybris/bin/custom/training/trainingfacades/classes/org/training/facades/suggestion/CwDefaultProductFacadeIntegrationTest.class
+hybris/bin/custom/training/trainingfacades/eclipsebin/
+**/jalo/*.class
+**/gensrc/

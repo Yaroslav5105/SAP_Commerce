@@ -31,6 +31,11 @@
             <value code="AUDI"/>
             <value code="BMW"/>
         </enumtype>
+
+        <enumtype code="UnitSystemType">
+            <value code="IMPERIAL"/>
+            <value code="METRIC"/>
+        </enumtype>
     </enumtypes>
 
     <itemtypes>
