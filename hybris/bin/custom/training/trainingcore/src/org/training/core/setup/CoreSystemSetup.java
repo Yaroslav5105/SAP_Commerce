@@ -11,8 +11,15 @@ import de.hybris.platform.core.initialization.SystemSetup.Type;
 import de.hybris.platform.core.initialization.SystemSetupContext;
 import de.hybris.platform.core.initialization.SystemSetupParameter;
 import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
+import de.hybris.platform.core.model.user.UserModel;
+import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
+import de.hybris.platform.servicelayer.model.ModelService;
+import de.hybris.platform.servicelayer.user.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.training.core.constants.TrainingCoreConstants;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +31,12 @@ import java.util.List;
 public class CoreSystemSetup extends AbstractSystemSetup
 {
 	public static final String IMPORT_ACCESS_RIGHTS = "accessRights";
+	private static final Logger LOG = LoggerFactory.getLogger(CoreSystemSetup.class);
+
+	@Resource
+	private UserService userService;
+	@Resource
+	private ModelService modelService;
 
 	/**
 	 * This method will be called by system creator during initialization and system update. Be sure that this method can
@@ -83,6 +96,13 @@ public class CoreSystemSetup extends AbstractSystemSetup
 		processCockpit(context, importAccessRights, extensionNames, "customersupportbackoffice",
 				"/trainingcore/import/cockpits/cscockpit/cscockpit-users.impex",
 				"/trainingcore/import/cockpits/cscockpit/cscockpit-access-rights.impex");
+
+
+		boolean createDemoUser = Boolean.parseBoolean(context.getParameter(TrainingCoreConstants.EXTENSIONNAME + "_createDemoUser"));
+
+		if (createDemoUser) {
+			createDemoUser();
+		}
 	}
 
 	protected void processCockpit(final SystemSetupContext context, final boolean importAccessRights,
@@ -94,6 +114,39 @@ public class CoreSystemSetup extends AbstractSystemSetup
 			{
 				importImpexFile(context, file);
 			}
+		}
+	}
+
+	@SystemSetupParameterMethod
+	public List<SystemSetupParameter> getSystemSetupParameters()
+	{
+		final List<SystemSetupParameter> params = new ArrayList<>();
+
+		final SystemSetupParameter customDataParameter = new SystemSetupParameter("createDemoUser");
+		customDataParameter.setLabel("Create demo Users?");
+		customDataParameter.addValue("true");
+		customDataParameter.addValue("false", true);
+		params.add(customDataParameter);
+
+		return params;
+	}
+
+	private void createDemoUser() {
+		UserModel demoUser = null;
+		try {
+			demoUser = userService.getUserForUID("demoUser");
+		} catch (UnknownIdentifierException e) {
+			LOG.warn("User demoUser not found, creating a new one.");
+		}
+
+		if (demoUser == null) {
+			demoUser = modelService.create(UserModel.class);
+			demoUser.setUid("demoUser");
+			demoUser.setName("Demo User");
+			modelService.save(demoUser);
+			LOG.info("DemoUser created successfully!");
+		} else {
+			LOG.info("DemoUser already exists.");
 		}
 	}
 
