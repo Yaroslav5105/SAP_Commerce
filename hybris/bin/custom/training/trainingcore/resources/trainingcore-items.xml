@@ -134,6 +134,27 @@
                 </attributes>
             </itemtype>
 
+            <itemtype code="Product" autocreate="false"  generate="false">
+                <attributes>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true"/>
+                    </attribute>
+                    <attribute qualifier="height" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true"/>
+                    </attribute>
+                    <attribute qualifier="length" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true"/>
+                    </attribute>
+                    <attribute qualifier="width" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers write="true" read="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
         </typegroup>
 
 

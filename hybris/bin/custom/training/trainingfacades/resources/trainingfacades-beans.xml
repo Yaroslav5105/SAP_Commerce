@@ -4,8 +4,16 @@
 -->
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
+	<enum class="de.hybris.platform.commercefacades.product.ProductOption">
+		<value>PHYSICAL_DIMENSIONS</value>
+	</enum>
+
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;org.training.facades.product.data.GenderData>"/>
+		<property name="weight" type="Double"/>
+		<property name="height" type="Double"/>
+		<property name="length" type="Double"/>
+		<property name="width" type="Double"/>
 	</bean>
 
 	<bean class="org.training.facades.product.data.GenderData">
